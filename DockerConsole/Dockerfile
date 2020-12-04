@@ -4,18 +4,18 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 
 WORKDIR /app
 #copy in published stuff
-COPY . .
+COPY . ./
 # copy entire directory as source code, see above
 
 #run runs during 'docker build'
-# RUN dotnet publish -o publish
+RUN dotnet publish -o publish
 
 #configure command to start containers, this runs after build, start of 'docker run'
-#CMD dotnet /app/publish/DockerConsole.dll
+CMD dotnet /app/publish/DockerConsole.dll
 
 
 
-CMD dotnet run
+
 
 # To Run:
 # 1. dotnet publish -o publish
